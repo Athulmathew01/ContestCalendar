@@ -15,11 +15,10 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
 
-height:98vh;
-width:90vw;
+height:85vh;
+width:80vw;
 position:relative;
 left:8em;
-
 .rbc-event-content,.rbc-event{
     height: 30px;
     background-color: transparent;
@@ -42,11 +41,16 @@ left:8em;
 
 }
 .rbc-day-bg.rbc-today{
-    background-color: lightgoldenrodyellow;
+    background-color: #FFF2D8;
 }
 .rbc-row-segment{
     /* overflow: scroll; */
-    scroll-behavior: smooth;
+
+    a{
+        overflow-wrap: break-word;  
+        word-wrap: break-word; 
+        word-break: break-word;
+    }
 }
 
 

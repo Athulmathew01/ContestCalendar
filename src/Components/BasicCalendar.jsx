@@ -3,6 +3,10 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import axios from 'axios';
 import Wrapper from '../Styles/CalendarStyle';
+import { useSearch } from './Context';
+import Loader from './Loader';
+
+
 
 const localizer = momentLocalizer(moment) 
 const siteImageMap = {
@@ -22,66 +26,86 @@ const siteImageMap = {
 
 function BasicCalendar() {
     const [cpost,setpost] = useState([])
+    const [loading, setLoading] = useState(true);
+    const {search} = useSearch();
+
+
     useEffect (()=>{
       axios
       .get('https://kontests.net/api/v1/all')
       .then((res)=>{
-          console.log(res.data);
-         setpost(res.data)
+        setpost(res.data)
+        setTimeout(() => {
+          setLoading(false);
+        }, 2500);
   
         })
-        .catch((err)=>
-        {
-          console.log(err);
-        })
+        .catch((err) => {
+          console.error('Error fetching data:', err);
+          setTimeout(() => {
+            setLoading(false);
+          }, 2500);
+        });
   
     },[])
-   
 
     const events = cpost.map((item, index) => {
-      const siteImage = siteImageMap[item.site] || ''; 
-      return {
-        id: index,
-        start: moment(item.start_time).toDate(),
-        end: moment(item.end_time).toDate(),
-        title: (
-          <a href={item.url} rel="noreferrer" target='_blank'>
-            <img width={30} src={siteImage}  alt='Logo'/>
-            {item.site} - {item.name}
-          </a>
-        ),
-      };
+      // logic for filtering the events
+      if (item.site.toLowerCase().includes(search.toLowerCase())) {
+        const siteImage = siteImageMap[item.site] || ''; 
+        return {
+          id: index,
+          // Due to some Depriciation of the date time i changed the format of the date time
+          // start: moment(item.start_time).toDate(),
+          // end: moment(item.end_time).toDate(),
+          start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          title: (
+            <a href={item.url} rel="noreferrer" target='_blank'>
+              <img width={30} src={siteImage}  alt='Logo'/>
+              {item.site} - {item.name}
+            </a>
+          ),
+        };
+      }    
+      else if (search === ''){
+        // if not typed anything every result is shown
+        const siteImage = siteImageMap[item.site] || ''; 
+        return {
+          id: index,
+          // start: moment(item.start_time).toDate(),
+          // end: moment(item.end_time).toDate(),
+          start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          title: (
+            <a href={item.url} rel="noreferrer" target='_blank'>
+              <img width={30} src={siteImage}  alt='Logo'/>
+              {item.site} - {item.name}
+            </a>
+          ),
+        };
+      }
+  
+      return null;
     });
     
-  // const eventColorGetter = () => {
-  //   const red = Math.floor(Math.random() * 256);
-  //   const green = Math.floor(Math.random() * 256);
-  //   const blue = Math.floor(Math.random() * 256);
-  //   const backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-  //   const brightness = (299 * red + 587 * green + 114 * blue) / 1000;
-  //   const textColor = brightness > 128 ? "black" : "white";
-  //   return {
-  //     style: {
-  //       backgroundColor: backgroundColor,
-  //       color: textColor,
-  //     },
-  //   };
-  // };
-   
+
 
   return (
     <div>
+      {loading ? (
+        <Loader/>
+    ) : (
     <Wrapper>
      <Calendar
         localizer={localizer}
         events={events}
         startAccessor="start"
         endAccessor="end"
-        // eventPropGetter={eventColorGetter}
- 
         />
         
     </Wrapper>
+  )}
     </div>
   )
 }
