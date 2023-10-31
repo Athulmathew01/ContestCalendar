@@ -56,10 +56,10 @@ function BasicCalendar() {
         return {
           id: index,
           // Due to some Depriciation of the date time i changed the format of the date time
-          // start: moment(item.start_time).toDate(),
-          // end: moment(item.end_time).toDate(),
-          start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
-          end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          start: moment(item.start_time).toDate(),
+          end: moment(item.end_time).toDate(),
+          // start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          // end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
           title: (
             <a href={item.url} rel="noreferrer" target='_blank'>
               <img width={30} src={siteImage}  alt='Logo'/>
@@ -73,10 +73,10 @@ function BasicCalendar() {
         const siteImage = siteImageMap[item.site] || ''; 
         return {
           id: index,
-          // start: moment(item.start_time).toDate(),
-          // end: moment(item.end_time).toDate(),
-          start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
-          end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          start: moment(item.start_time).toDate(),
+          end: moment(item.end_time).toDate(),
+          // start:moment(item.start_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
+          // end: moment(item.end_time, 'YYYY-MM-DD HH:mm:ss z').toISOString(),
           title: (
             <a href={item.url} rel="noreferrer" target='_blank'>
               <img width={30} src={siteImage}  alt='Logo'/>
