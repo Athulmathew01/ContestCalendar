@@ -14,11 +14,27 @@ import styled from "styled-components";
     // };
 
 const Wrapper = styled.div`
+@media (max-width: 768px) {
+  .rbc-calendar {
+    height: 87vh;
+    width: 90vw;
+    margin: 0 auto;
+    margin-top: 4.4em;
+  }
+  /* .rbc-event,.rbc-event-allday{
+    a{
+        word-wrap: break-word;
+
+    }
+  } */
+}
 
 height:85vh;
-width:80vw;
+width:87vw;
 position:relative;
-left:8em;
+margin: 0 auto;
+margin-top: 1.8em;
+
 .rbc-event-content,.rbc-event{
     height: 30px;
     background-color: transparent;

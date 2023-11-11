@@ -12,8 +12,9 @@ function Search() {
   return (
     <div className='searchbar'>
         <input  placeholder='Search platforms....' onChange={(e)=>(searchItem(e.target.value))} value={search}></input>
-        < ImSearch/>
+        <ImSearch/>
     </div>
+  
   )
 }
 

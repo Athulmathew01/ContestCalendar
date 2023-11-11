@@ -4,23 +4,25 @@ import BasicCalendar from './Components/BasicCalendar';
 import MainContainer from './Styles/AppStyle';
 import Search from './Components/Search';
 import { SearchProvider } from './Components/Context';
-
+// import Notified from './Components/Notified';
 
 function App() {  
     
   return (
 
   <MainContainer>
-    <SearchProvider>
     <div className='Main-wrapper'>
 
-      <nav className='nav-bar'> <a href='/'>C<span>ontest</span>C<span>alendar</span></a>
-        <Search />
-      </nav>
-      <BasicCalendar/>
+      <SearchProvider>
+        <nav className='nav-bar'> 
+          <a href='/'>C<span>ontest</span>C<span>alendar</span></a>
+          <Search />
+          {/* <Notified/> */}
+        </nav>
+        <BasicCalendar/>
   
+      </SearchProvider>
     </div>
-    </SearchProvider>
   </MainContainer>
 
   );

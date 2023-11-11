@@ -1,14 +1,10 @@
 import styled from "styled-components";
 
 const LoaderContainer = styled.div`
-/* background-color: white;
-position: relative;
-top: 50%;
-left: 50%;
-transform: translate(-50%, 50%); */
-background: white; /* Set the background color to white */
+overflow: hidden;
+background: white; 
   width: auto;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,6 +29,24 @@ p{
     transform: translate(-50%, -50%); */
 }
 
+@media screen and (max-width: 768px) {
+
+    width: auto;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 1.4em;
+        
+    img{
+        width: 14vw;
+    }
+    p{
+        font-size: 1.4rem;
+
+    }
+}
 `;
 
 export default LoaderContainer;
