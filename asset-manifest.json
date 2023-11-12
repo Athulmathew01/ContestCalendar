@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/ContestCalendar/static/css/main.f51f1c67.css",
-    "main.js": "/ContestCalendar/static/js/main.5499d9d2.js",
+    "main.js": "/ContestCalendar/static/js/main.02b9afed.js",
     "static/js/787.646e534b.chunk.js": "/ContestCalendar/static/js/787.646e534b.chunk.js",
     "static/media/tournament.gif": "/ContestCalendar/static/media/tournament.6d559f41815e6652d9cd.gif",
     "index.html": "/ContestCalendar/index.html",
     "main.f51f1c67.css.map": "/ContestCalendar/static/css/main.f51f1c67.css.map",
-    "main.5499d9d2.js.map": "/ContestCalendar/static/js/main.5499d9d2.js.map",
+    "main.02b9afed.js.map": "/ContestCalendar/static/js/main.02b9afed.js.map",
     "787.646e534b.chunk.js.map": "/ContestCalendar/static/js/787.646e534b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f51f1c67.css",
-    "static/js/main.5499d9d2.js"
+    "static/js/main.02b9afed.js"
   ]
 }
