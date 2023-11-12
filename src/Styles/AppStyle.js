@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const MainContainer = styled("div")`
+#small-title{
+    display: none;
+}
 .Main-wrapper{
     background-color:white;
     height: 100%;
@@ -13,11 +16,10 @@ const MainContainer = styled("div")`
     overflow-x: hidden;
     .Main-wrapper{
         background-color:white;
-        height: 90vh;
+        height: 96vh;
         width: 100%;
         margin: 0 auto;
-    /* margin-right: 2em; */
-    /* padding-right: 1.5em; */
+ 
 
     }
 
@@ -77,6 +79,12 @@ const MainContainer = styled("div")`
 
 }
 @media screen and (max-width: 768px) {
+#big-title{
+    display: none;
+}
+#small-title{
+    display: block;
+}
     .nav-bar{
         background-color: #141E46;
         width:100%;
@@ -89,9 +97,7 @@ const MainContainer = styled("div")`
         justify-content: space-between;
 
         .searchbar{
-            position: relative;
-            top: 4rem;
-            left: -12rem;
+
             width: 20vh;
             border-radius: 0.7em;
             padding: 0.4em;

@@ -19,7 +19,7 @@ const Wrapper = styled.div`
     height: 87vh;
     width: 90vw;
     margin: 0 auto;
-    margin-top: 4.4em;
+
   }
   /* .rbc-event,.rbc-event-allday{
     a{
@@ -82,6 +82,34 @@ margin-top: 1.8em;
         text-decoration: none;
         img{
             margin-right:5px;
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .rbc-event-content{
+        a{
+            overflow-x: scroll;
+          
+        }
+        ::-webkit-scrollbar {
+                width: auto;
+                height: 3px;
+                padding: 2px;
+            }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #113946;
+            border-radius: 10px;
+        }
+
+    }
+    .rbc-row{
+        margin-top: 0.3em;
+    } 
+    .rbc-toolbar{
+        flex-direction: column-reverse;
+        span{
+            margin: 0.2em;
         }
     }
 }

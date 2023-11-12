@@ -15,7 +15,8 @@ function App() {
 
       <SearchProvider>
         <nav className='nav-bar'> 
-          <a href='/'>C<span>ontest</span>C<span>alendar</span></a>
+          <a id='big-title' href='/ContestCalendar' title='ContestCaledar'>C<span>ontest</span>C<span>alendar</span></a>
+          <a id='small-title' href='/ContestCalendar' title='ContestCaledar'>C<span>C</span></a>
           <Search />
           {/* <Notified/> */}
         </nav>

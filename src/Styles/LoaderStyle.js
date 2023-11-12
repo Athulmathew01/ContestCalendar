@@ -37,7 +37,6 @@ p{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-left: 1.4em;
         
     img{
         width: 14vw;
